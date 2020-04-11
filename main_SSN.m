@@ -26,7 +26,7 @@ ref_data=normal_data;
 disp(n1)
 disp(n2)
 
-disp(gene_list)
+%disp(gene_list)
 fileID = fopen('Gene_list_SSN.txt','w');
 fprintf(fileID, '%s\n', gene_list{:}); %cell array of strings
 fclose(fileID);
@@ -39,47 +39,34 @@ fclose(fileID);
     [R0,P]=SSN(sample_red,ref_data);
     %   Output:
     %   adjacency_matrix:the network structure
-    disp(R0)
-    disp(P)
+    
+    %disp(R0)
+    %disp(P)
+    
     [row,col] = size(R0);
       
       
-        for j=1:row
+        for j=1:col
         %for j=1:s1
-            for k=1:col
+            for k=1:row
             %for k=1:s2
-                
-            disp(j)
-            disp(k)
-            disp(R0(j,k))
+
                 
                 if abs(R0(j,k))>= 0.05
-                
-                    disp(R0(j,k))
-                
                     R0(j,k)=0;
-                else
+                    %disp(R0(j,k))
+                else % < 0.05
                     R0(j,k)=1;
-                    
+                    %disp(R0(j,k))
                 end
             end
             
-            disp (R0)
-            %Sample_name_normal
-            [r,c] = size(Sample_name_normal);
-            for l=1:c
-                formatSpec = "%s_%d";
-                A3 = Sample_name_normal{l};
-                A1 = l;
-                str = sprintf(formatSpec,A3,A1);
-                disp(str)
-                writematrix(R0,str,'Delimiter','tab')
-                
-            end
-            
         end
-
-    
+        
+        formatSpec = "%s_%d";
+        A3 = Sample_name_normal{i};
+        A1 = i;
+        str = sprintf(formatSpec,A3,A1);
+        writematrix(R0,str,'Delimiter','tab')         
     
   end
- 
