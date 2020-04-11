@@ -22,8 +22,6 @@ function [ index_R,p ] = SSN( sample,ref )
 final_R0=R;
 final_R0(isnan(final_R0))=0;
 
-%disp("final_R0_0")
-%disp(final_R0)
 
 %NEW_data=[sample ref];
 NEW_data=[ref sample];
@@ -32,13 +30,6 @@ final_R1=R1;
 final_R1(isnan(final_R1))=0;
 
 index_R=final_R1-final_R0;
-
-%disp("final_R1")
-%disp(final_R1)
-%disp("final_R0")
-%disp(final_R0)
-
-%disp(index_R)
 
 [m,n]=size(ref);
 Z=index_R./((1-final_R0.^2)/(n-1));
