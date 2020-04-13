@@ -85,11 +85,7 @@ for k = c
     S = '----Hello World----';
     %disp(textdata)
     nombre_sample = textdata(1,:)
-    nombre_sample_2 = nombre_sample(2:end,:)
-    disp('--1--')
-    disp(nombre_sample)
-    disp('--2--')
-    disp(nombre_sample_2)
+
 end
 
 dim = n1-1; 
