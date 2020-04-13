@@ -1,4 +1,5 @@
 function csn = csnet(data,c,alpha,boxsize,weighted,textdata)
+
 %Construction of cell-specific networks
 %The function performs the transformation from gene expression matrix to
 %cell-specific network (csn).
@@ -82,10 +83,13 @@ for k = c
     
     disp(['Cell ' num2str(k) ' is completed']);
     S = '----Hello World----';
-    disp(textdata)
+    %disp(textdata)
     nombre_sample = textdata(1,:)
-    disp(S)
-    
+    nombre_sample_2 = nombre_sample(2:end,:)
+    disp('--1--')
+    disp(nombre_sample)
+    disp('--2--')
+    disp(nombre_sample_2)
 end
 
 dim = n1-1; 
@@ -98,7 +102,7 @@ for l=1: size(csn,1) %scan rows
         disp(m)
         
         formatSpec = "%s_%d";
-        A3 = nombre_sample{m};
+        A3 = nombre_sample{m+1}; 
         A1 = m;
         str = sprintf(formatSpec,A3,A1);
         %Xfilename = sprintf('Cell_%d.txt',m); 
