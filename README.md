@@ -4,7 +4,7 @@ cd /opt/MATLAB/R2019b/bin/glnxa64
 
 ./MATLAB
 
-# csnet method
+# CSNet method
 
 data= importdata('/Users/Vero_Latapiat/Documents/MATLAB/simulated_expr-data_TGFBeta_sc.txt')
 
