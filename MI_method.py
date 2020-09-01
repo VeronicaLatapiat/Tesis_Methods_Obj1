@@ -38,7 +38,6 @@ seaborn.distplot(datos.loc['A', :], bins = 50)
 # dado por el nro de genes
 
 #####
-#lista(range(0, N))
 # Todo eso se puede reemplazar por
 combinations(res, 2) # esto es un generador
 
@@ -51,10 +50,6 @@ for a, b in combinations(res, 2):
     lista.append([a, b]) # fancy
 len(lista)
 print(lista)
-
-#for d in lista:
-#    print(datos.iloc[d[0],:]) #columna, todas las filas
-#    print(datos.iloc[d[1],:])
     
 # se puede comprimir
 for genA, genB in combinations(res, 2):
@@ -87,14 +82,7 @@ print("nombre nodo",nombre_nodo)
 
 # tenemos N muestras y calcularemos las k muestras mas cercanas en los valores de x(expresion de un gen a esta)
 
-#antiguo
-#datos_num = x_prueba.to_numpy()
-#datos_num_transpose = datos_num.transpose()
-
-#print(datos_num_transpose)
-
-#print("x",x_prueba)
-datos_num_transpose = x_prueba.T.values # hace lo mismo
+datos_num_transpose = x_prueba.T.values 
 
 
 print("t2",datos_num_transpose)
@@ -108,13 +96,10 @@ datos_num_transpose_2 = datos_num_transpose.reshape(-1, 1)
 print(datos_num_transpose_2)       # Produces: [[ 0.58  0.76]]
 print(datos_num_transpose_2.shape) # Produces (1, 2) meaning 1 row, 2 cols
 
-#print("Sample",samples)
 muestra=datos.iloc[0,0] # primera fila con info de 1 gen en n samples, menos el nombre del nodo
 print("Sample",muestra)
 muestra2=datos.iloc[0,99] # primera fila con info de 1 gen en n samples, menos el nombre del nodo
 print("Sample",muestra2)
-#muestra3=datos.iloc[0,100] # primera fila con info de 1 gen en n samples, menos el nombre del nodo
-#print("Sample",muestra3)
 
 # Centrar datos
 
@@ -146,20 +131,12 @@ for j in range(0,samples):#[-1:]: #deberian ser 100 samples, aca van desde el 0 
             print("z:",z)
         else:
             continue
-        #y^j= Xi^j-z
-        
-        #Aqui esta mal... se debe sacar xi desde 
-        
-        #print("xi[jj,l]")
-        #print(xi[jj,l])
-        #print("xi[jj,0:k+1]")
+
         print(xi[jj,0:k+1])# k-vecinos mas cercanos en j -> diferentes samples...
         
         for ki in range(0,k+1):
             
             y= xi[jj,ki] - z
-                #y= xi[jj,l] - z
-                #y= xi[jj,l] - z
             print("ki")
             print(xi[jj,ki])
             print ("Y?",y)
@@ -169,8 +146,6 @@ for j in range(0,samples):#[-1:]: #deberian ser 100 samples, aca van desde el 0 
             #loop para agregar sucesores a lista hasta llegar a r2   !!?buscar forma mas eficiente   
             
             listaY.append(yr) 
-            #print("listaY")
-            #print("listaY",listaY)
         
 print("listaY-fuera for2",listaY) #vector de expresión de gen centrado en las k-muestras cercanas, por las 100 muestras
 
